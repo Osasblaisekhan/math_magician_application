@@ -31,7 +31,7 @@ nav .list-container li a {
 
 nav .list-container li a:hover {
   background-color: gray;
-  color: #fff;
+  color: #ffffff;
   padding: 10px 20px;
   border-radius: 10px;
   transition: 0.5s ease;
