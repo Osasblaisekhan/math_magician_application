@@ -17,7 +17,7 @@ const Quote = () => {
       setAuthor(res[0]?.author);
     } catch (error) {
       setQuote('Please be patient we are facing some issues to load this page due to poor network. Check your connection and try again maybe you are behind a proxy.');
-      setAuthor('loading...');
+      setAuthor('loading.....');
     }
   };
   useEffect(() => {
