@@ -19,6 +19,9 @@ const Navbar = () => (
             <li>
                 <Link to={'/quote'}>Quote</Link>
             </li>
+            <li>
+                <Link to={'/bible'}>Bible Qutoes</Link>
+            </li>
         </ul>
     </nav>
 );
