@@ -16,7 +16,6 @@ const Bible = () => {
       setChapter(res.random_verse.chapter);
       setVerse(res.random_verse.verse);
       setQuote(res.random_verse.text);
-      console.log(res.random_verse);
     } catch {
       setBook('loading....');
       setChapter('loading...');
