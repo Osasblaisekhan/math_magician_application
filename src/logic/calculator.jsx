@@ -4,20 +4,28 @@ import { create, all } from 'mathjs';
 
 import './calculator.css';
 
-const Calculator = () => {
-  const [displayValue, setDisplayValue] = useState('');
+const Calculator = ({ initialValue }) => {
+  const [displayValue, setDisplayValue] = useState(initialValue);
 
   const math = create(all);
 
   const handleDisplayValue = (value) => {
+    if (value === '0' && displayValue === '0') return;
     setDisplayValue(() => displayValue + value);
   };
   const clearall = () => {
-    setDisplayValue('');
+    setDisplayValue(0);
+  };
+  const toggleStatus = () => {
+    setDisplayValue(displayValue * -1);
   };
 
   const clearOne = () => {
-    setDisplayValue(() => displayValue.slice(0, -1));
+    try {
+      setDisplayValue(() => displayValue.slice(0, -1) || '0');
+    } catch {
+      setDisplayValue('error');
+    }
   };
   const evaluateValue = () => {
     try {
@@ -37,12 +45,12 @@ const Calculator = () => {
     <div className='calculator'>
         <form>
             <div className='screen'>
-                <input onClick={calculateResult('e')} id='screen' type="text" value={displayValue} />
+                <input onKeyDown={calculateResult('e')} onChange={() => {}} id='screen' type="text" data-testid='test' value={displayValue} />
             </div>
             <div>
                 <button type='button' onClick={() => clearall()}>AC</button>
                 <button type='button' onClick={() => clearOne()}>DE</button>
-                <button type='button' onClick={() => handleDisplayValue('%')}>%</button>
+                <button type='button' onClick={() => toggleStatus()}>-/+</button>
                 <button type='button' className='red' onClick={() => handleDisplayValue('/')}>/</button>
             </div>
             <div>
@@ -64,7 +72,7 @@ const Calculator = () => {
                 <button type='button' className='red' onClick={() => handleDisplayValue('+')}>+</button>
             </div>
             <div>
-                <button type='button' onClick={() => handleDisplayValue('00')}>00</button>
+                <button type='button' onClick={() => handleDisplayValue('%')}>%</button>
                 <button type='button' onClick={() => handleDisplayValue('0')}>0</button>
                 <button type='button' onClick={() => handleDisplayValue('.')}>.</button>
                 <button type='button' className='red' onClick={() => evaluateValue()}>=</button>

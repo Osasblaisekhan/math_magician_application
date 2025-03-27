@@ -1,0 +1,33 @@
+.bible-container {
+  margin-top: 70px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-one h3 {
+  margin-left: 10px;
+  font-size: 40px;
+  font-weight: 900;
+  color: brown;
+}
+
+.content-two {
+  display: flex;
+  width: 800px;
+  height: 100px;
+  margin-right: 99px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.content-two h4:nth-child(1) {
+  color: rgba(45, 17, 73, 0.822);
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.content-two h4:nth-child(2) {
+  color: red;
+  font-weight: 800;
+  font-size: 30px;
+}
